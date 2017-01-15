@@ -1,0 +1,13 @@
+#demoUrlInput {transform: translate3d(0, 0, 0);transition: transform 0.6s ease-in-out}
+#demoDisplayDesktop {position: absolute;}
+.demogallerygrid {position: absolute; left: 50%; margin-left: -800px; width: 1600px; height: 940px; transform: translate3d(0, 0, 0); visibility: hidden; transition: transform 0.6s ease-in-out, visibility 0s linear 0.6s; background-color: transparent!important;padding: 0!important;overflow:hidden;}
+.pagewrapActive #demoUrlInput {transform: translate3d(0, -10vh, 0);}
+.pagewrapActive .demogallerygrid {transform: translate3d(0, -100vh, 0) scale(0.5);visibility: visible; transition: transform 0.6s ease-in-out, visibility 0.6s linear 0s;}
+.demogallerygrid svg {height: 100%; text-align: center}
+.screenContainerD {right:0;width: 1560px;height: 906px;background-image: url('/assets/mac.png');background-size: 1560px;}
+.screenContainerM {left:0;width: 330px;height: 660px;background-image: url('/assets/iphone6.png');background-size: 330px;}
+.screen {position: absolute; bottom: 0;margin:auto;background-position: center center;background-repeat: no-repeat;}
+.screenD, #frameD {position: absolute;width: 1200px;height: 760px;top: 50px;left: 180px;background: #111;}
+.screenM, #frameM {position: absolute;width: 288px;height: 506px;top: 77px;left: 23px;background: #111;}
+#frameD {top: 0; left: 0;}
+#frameM {top: 0; left: 0;}

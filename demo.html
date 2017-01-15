@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Spoutable Demo</title>
+        <style>body {margin: 0}</style>
+    </head>
+    <body>
+        <iframe id="embedUrl" src="EMBED_URL" width="100%" style="height:100vh;" frameborder="0"></iframe>
+        <script>
+            // DEMO SPECIFIC
+            var embed = document.getElementById('embedUrl')
+            embed.onload = bootSpout;
+            embed.onerror = bootSpout;
+            
+            setUserAgent(window, 'navigator.userAgent');
+
+            function setUserAgent (window, agent) {
+                if (!agent) return;
+                window.navigator.__defineGetter__('userAgent', function(){
+                    return agent;
+                })
+            }
+
+            function bootSpout () {
+                var config = SITE_PROPS;
+                config.spout.cdnHost = "//localhost:3000";
+                config.spout.protocolVersion = 2;
+                config.spout.boilerplateVersion = 2;
+                config.spout.bootstrapSHA = "nosha";
+                config.spout.branch = "js";
+                config.spout.site = config.spout.site || {};
+                config.spout.site.isDemoPage = true;
+                var app = document.createElement("script");
+                app.onload = function () {
+                    var App = require("./app").default;
+                    window.spout = new App(config);
+                };
+                app.src = config.spout.cdnHost + "/app/" + config.spout.branch + "/app.js";
+                var head = document.head || document.getElementsByTagName("head")[0];
+                head.appendChild(app);
+            }
+        </script>
+    </body>
+</html>
